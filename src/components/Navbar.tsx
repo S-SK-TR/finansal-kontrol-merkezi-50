@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { useAuth } from '../features/auth/useAuth'
-import { Button } from './ui/Button'
-import { IconWrapper } from './ui/IconWrapper'
+import { useAuth } from '../../features/auth/useAuth'
+import { Button } from '../ui/Button'
+import { IconWrapper } from '../ui/IconWrapper'
 import { Bell, Moon, Sun } from 'lucide-react'
-import { useTheme } from '../core/useTheme'
+import { useTheme } from '../../core/useTheme'
 
 interface NavbarProps {
   title?: string

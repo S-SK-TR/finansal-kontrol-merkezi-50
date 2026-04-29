@@ -2,11 +2,11 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { api } from '../../core/api'
-import { Card } from '../../components/ui/Card'
-import { Button } from '../../components/ui/Button'
-import { Input } from '../../components/ui/Input'
-import { useAuth } from '../auth/useAuth'
+import { api } from '../../../core/api'
+import { Card } from '../../../components/ui/Card'
+import { Button } from '../../../components/ui/Button'
+import { Input } from '../../../components/ui/Input'
+import { useAuth } from '../../auth/useAuth'
 
 const profileSchema = z.object({
   name: z.string().min(2, 'İsim en az 2 karakter olmalıdır'),

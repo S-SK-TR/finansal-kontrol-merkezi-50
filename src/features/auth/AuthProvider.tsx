@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { api } from '../../core/api'
+import { api } from '../../../core/api'
 
 interface User {
   id: string
@@ -16,7 +16,7 @@ interface AuthContextType {
   isLoading: boolean
 }
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined)
+const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)

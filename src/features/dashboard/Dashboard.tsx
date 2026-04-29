@@ -1,10 +1,10 @@
-import { Card } from '../../components/ui/Card'
-import { Button } from '../../components/ui/Button'
-import { IconWrapper } from '../../components/ui/IconWrapper'
+import { Card } from '../../../components/ui/Card'
+import { Button } from '../../../components/ui/Button'
+import { IconWrapper } from '../../../components/ui/IconWrapper'
 import { Plus, TrendingUp, TrendingDown, Wallet } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
-import { api } from '../../core/api'
-import { TransactionList } from '../transactions/TransactionList'
+import { api } from '../../../core/api'
+import { TransactionList } from '../../transactions/TransactionList'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 interface SummaryData {

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import { IconWrapper } from './ui/IconWrapper'
+import { IconWrapper } from '../ui/IconWrapper'
 import { Home, PieChart, Wallet, Settings, LogOut } from 'lucide-react'
-import { useAuth } from '../features/auth/useAuth'
+import { useAuth } from '../../features/auth/useAuth'
 
 const navItems = [
   { to: '/', icon: Home, label: 'Anasayfa' },

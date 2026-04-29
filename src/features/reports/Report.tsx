@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-import { api } from '../../core/api'
-import { Card } from '../../components/ui/Card'
+import { api } from '../../../core/api'
+import { Card } from '../../../components/ui/Card'
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts'
 import { useState } from 'react'
-import { Button } from '../../components/ui/Button'
+import { Button } from '../../../components/ui/Button'
 
 interface ReportData {
   categories: Array<{

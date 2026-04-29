@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { api } from '../../core/api'
-import { Card } from '../../components/ui/Card'
-import { Button } from '../../components/ui/Button'
-import { IconWrapper } from '../../components/ui/IconWrapper'
+import { api } from '../../../core/api'
+import { Card } from '../../../components/ui/Card'
+import { Button } from '../../../components/ui/Button'
+import { IconWrapper } from '../../../components/ui/IconWrapper'
 import { Edit, Trash2 } from 'lucide-react'
 
 interface Transaction {
