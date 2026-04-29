@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import { Navbar } from './Navbar'
-import { Sidebar } from './Sidebar'
+import { Navbar } from '../src/components/Navbar'
+import { Sidebar } from '../src/components/Sidebar'
 
 interface AppShellProps {
   children?: React.ReactNode
