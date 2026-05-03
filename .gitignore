@@ -1,81 +1,59 @@
-# ============================================
-# Environment & Secrets
-# ============================================
-.env
-.env.local
-.env.*.local
-*.pem
-*.key
-
-# ============================================
-# Dependencies
-# ============================================
-node_modules/
-bower_components/
-vendor/
-.pnp.*
-
-# ============================================
-# Build Outputs
-# ============================================
-dist/
-build/
-out/
-.next/
-.nuxt/
-.output/
-*.tsbuildinfo
-
-# ============================================
-# IDE & Editor
-# ============================================
-.vscode/settings.json
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# ============================================
-# OS Generated
-# ============================================
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-
-# ============================================
-# Logs & Debug
-# ============================================
-logs/
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# ============================================
-# Test & Coverage
-# ============================================
-coverage/
-.nyc_output/
-*.lcov
+# Diagnostic reports (https://nodejs.org/api/report.html)
+.report/
 
-# ============================================
-# Temp Files
-# ============================================
-tmp/
-temp/
-.tmp/
-.cache/
+# Runtime data
+*.cjs
+*.mjs
 
-# ============================================
-# Package Lock Files (choose one)
-# ============================================
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+# Directory for compiled output
+dist
+dist-ssr
+*.local
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build artifacts
+.vite
+.vite-inspect
+.env
+.env.*
+!.env.production.local
+
+# IDEs and editors
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.user
+*.bak
+*.config
+*.log
+*.tmp
+*.vs/
+*.DS_Store
+Thumbs.db
+
+# Misc
+*.pid
+*.seed
+*.db
+
+# Jest cache
+.jest/
+
+# Docker
+.dockerignore

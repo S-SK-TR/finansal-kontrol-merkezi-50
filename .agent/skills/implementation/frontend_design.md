@@ -559,16 +559,17 @@ className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bl
 
 ## 🚫 Anti-Patterns (Asla Yapma)
 
-| ❌ Amatör | ✅ Premium |
+| ❌ Amatör / AI Slop | ✅ Premium SaaS (Linear/Vercel) |
 |-----------|-----------|
 | `onClick={() => console.log()}` ile test bırakma | Temiz, production-ready kod |
-| `px-2 py-1` gibi keyfi değerler | 4'ün katları: `p-2 p-4 p-6 p-8` |
-| `text-[#333]` inline hex | CSS var veya Tailwind token |
-| Her yerde `useEffect` + `useState` fetch | `@tanstack/react-query` |
+| `px-2 py-1` veya rasgele boşluklar | Kesin **8px Grid** sistemi (p-2, p-4, p-8) |
+| `text-[#333]` inline hex, gökkuşağı UI | 2-3 ana renkli sofistike palet (Design token) |
+| Her yerde `useEffect` + `useState` fetch | `@tanstack/react-query` veya Server State |
 | `z-index: 9999` | Katmanlı `z-10/20/30/50` sistemi |
-| Keskin köşe (`rounded`) | `rounded-xl` veya `rounded-2xl` |
+| Keskin köşe (`rounded`) | `rounded-xl` veya `rounded-2xl` ve Soft Shadow |
 | Overflow scroll gizli | `overflow-hidden` + `min-w-0` flex |
 | `window.innerWidth` ile breakpoint | Tailwind responsive prefix |
+| Jenerik, AI hissi veren tasarımlar | Startup ürünü gibi hissettiren rafine UI |
 
 ---
 

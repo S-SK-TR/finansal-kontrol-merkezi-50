@@ -2,17 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Custom CSS variables for Theme B - Pro Dashboard (Deep Dark) */
+:root {
+  /* Light theme variables (default if 'dark' class is not present) */
+  --bg-base:      #f8fafc;        /* slate-50 */
+  --bg-surface:   #ffffff;        /* white */
+  --bg-elevated:  #ffffff;        /* white */
+  --border:       #e2e8f0;        /* slate-200 */
+  --text-primary: #0f172a;        /* slate-900 */
+  --text-muted:   #64748b;        /* slate-500 */
+  --brand-500:    221 83% 53%;    /* blue-600 */
+  --font-sans:    'Inter', sans-serif; /* Fallback to system fonts */
+  --font-mono:    'Fira Code', monospace;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+:root[class~="dark"] {
+  --bg-base:      #09090b;        /* zinc-950 */
+  --bg-surface:   #18181b;        /* zinc-900 */
+  --bg-elevated:  #27272a;        /* zinc-800 */
+  --border:       #3f3f46;        /* zinc-700 */
+  --text-primary: #fafafa;        /* zinc-50 */
+  --text-muted:   #a1a1aa;        /* zinc-400 */
+  --brand-500:    142 71% 45%;    /* emerald-500 */
+  --font-sans:    'Inter', sans-serif; /* Consistent font for dark mode */
 }
 
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
+/* Ensure the font is loaded or available */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
 }
