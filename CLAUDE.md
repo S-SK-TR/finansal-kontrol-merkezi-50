@@ -8,7 +8,8 @@
 
 - **Proje Adı**: [PROJECT_NAME]
 - **Açıklama**: [PROJECT_DESCRIPTION]
-- **Teknoloji Stack**: [TECH_STACK]
+- **Teknoloji Stack**: React, Vite, TypeScript, Tailwind CSS, Framer Motion, Zustand, PWA (vite-plugin-pwa)
+- **UI Standartları**: Premium SaaS, Glassmorphism, Modern Typography
 - **Versiyon**: 0.1.0
 - **Başlangıç Tarihi**: [START_DATE]
 
@@ -46,7 +47,6 @@ Her dosya, modül ve fonksiyon tek bir sorumluluğa sahip olmalıdır.
 Kod yazılmadan önce plan ve API dokümanı hazırlanır.
 
 ---
-
 ## 📋 Development Workflow
 
 ### Yeni Özellik Ekleme
@@ -57,6 +57,11 @@ Kod yazılmadan önce plan ve API dokümanı hazırlanır.
 5. `tests/` altında testleri yaz
 6. `docs/` altında dokümantasyonu güncelle
 7. `docs/changelog/CHANGELOG.md` dosyasını güncelle
+
+### 🛠️ Geliştirme ve İyileştirme (Fix Agent)
+1. Proje oluşturulduktan sonra `plans/fix_plan.md` dosyasını inceleyin.
+2. Bu plan, projenin premium seviyeye taşınması için gerekli adımları içerir.
+3. Fix Agent, bu planı takip ederek projeyi otomatik olarak iyileştirebilir.
 
 ### Bug Fix
 1. `.collections/prompts/bug-fix.md` şablonunu kullan
