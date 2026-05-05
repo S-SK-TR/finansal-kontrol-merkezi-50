@@ -1,38 +1,59 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --brand-50: 160 100% 98%;
-  --brand-500: 160 84% 39%;
-  --brand-600: 160 84% 30%;
-  
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-base: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-glow: rgba(59, 130, 246, 0.1);
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --brand-500: 217 91% 60%; /* blue-500 */
 }
 
-@layer base {
-  body {
-    @apply bg-zinc-950 text-zinc-50 antialiased;
-    font-family: var(--font-sans);
-  }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Premium Glassmorphism */
 .glass-card {
-  @apply bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-2xl shadow-2xl;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-.gradient-text {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500;
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  @apply bg-zinc-950;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-zinc-800 rounded-full hover:bg-zinc-700 transition-colors;
+/* Smooth Transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }

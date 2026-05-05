@@ -134,4 +134,24 @@ Kod yazılmadan önce plan ve API dokümanı hazırlanır.
 
 ---
 
-*Son Güncelleme: [TARIH]*
+## 💎 Premium SaaS Standards (MUST FOLLOW)
+
+### 1. Technology & Structure
+- **Core**: React (Vite) + TypeScript (ZORUNLU). .js/.jsx dosyalarından kaçının.
+- **Entry Point**: Daima `src/main.tsx` ve `src/App.tsx`.
+- **Styling**: Tailwind CSS + Glassmorphism.
+- **Components**: `src/components/ui` (reusable) ve `src/components/layout` (AppShell).
+
+### 2. UI/UX Excellence
+- **Glassmorphism**: Kartlarda `.glass-card` sınıfını kullan. Bulanıklık ve şeffaflık ile derinlik hissi ver.
+- **Bento Grid**: Verileri ve özellikleri modern, asimetrik grid yapılarıyla sun.
+- **Typography**: Başlıklar için `Outfit`, gövde metni için `Inter` fontunu kullan.
+- **Micro-animations**: Framer Motion ile butonlarda hover (`scale: 1.02`), tıklama (`scale: 0.98`) ve sayfa geçişlerinde (`fade-up`) animasyonlar kullan.
+
+### 3. Cleanup & Consistency
+- **Config Management**: Aynı konfigürasyonun birden fazla versiyonunu (`.js`, `.ts`, `.cjs`) oluşturma. Tercih edilen: `.ts` (Vite/Tailwind) veya `.cjs` (PostCSS).
+- **No Placeholders**: AI tarafından üretilen metinlerin (lorem ipsum) yerine gerçekçi SaaS içerikleri kullan.
+
+---
+
+*Son Güncelleme: 2026-05-05*
