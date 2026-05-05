@@ -18,6 +18,8 @@ interface FinanceState {
   getTotalBalance: () => number;
   getMonthlyIncome: () => number;
   getMonthlyExpense: () => number;
+  getYearlyIncome: () => number;
+  getYearlyExpense: () => number;
   getCategoryData: () => { name: string; value: number; color: string }[];
 }
 
@@ -59,31 +61,72 @@ export const useFinanceStore = create<FinanceState>()(
         return transactions.reduce((acc, t) => t.type === 'income' ? acc + t.amount : acc - t.amount, 0);
       },
 
-      getMonthlyIncome: () => {
-        const { transactions } = get();
-        return transactions
-          .filter((t) => t.type === 'income')
-          .reduce((acc, t) => acc + t.amount, 0);
-      },
+  getMonthlyIncome: () => {
+    const { transactions } = get();
+    const now = new Date();
+    return transactions
+      .filter((t) => {
+        const d = new Date(t.date);
+        return t.type === 'income' && 
+               d.getMonth() === now.getMonth() && 
+               d.getFullYear() === now.getFullYear();
+      })
+      .reduce((acc, t) => acc + t.amount, 0);
+  },
 
-      getMonthlyExpense: () => {
-        const { transactions } = get();
-        return transactions
-          .filter((t) => t.type === 'expense')
-          .reduce((acc, t) => acc + t.amount, 0);
-      },
+  getMonthlyExpense: () => {
+    const { transactions } = get();
+    const now = new Date();
+    return transactions
+      .filter((t) => {
+        const d = new Date(t.date);
+        return t.type === 'expense' && 
+               d.getMonth() === now.getMonth() && 
+               d.getFullYear() === now.getFullYear();
+      })
+      .reduce((acc, t) => acc + t.amount, 0);
+  },
 
-      getCategoryData: () => {
-        const { transactions } = get();
-        const expenseOnly = transactions.filter(t => t.type === 'expense');
-        const categories = [...new Set(expenseOnly.map(t => t.category))];
-        
-        return categories.map(cat => ({
-          name: cat,
-          value: expenseOnly.filter(t => t.category === cat).reduce((acc, t) => acc + t.amount, 0),
-          color: CATEGORY_COLORS[cat] || CATEGORY_COLORS['Diğer']
-        })).sort((a, b) => b.value - a.value);
-      }
+  getYearlyIncome: () => {
+    const { transactions } = get();
+    const now = new Date();
+    return transactions
+      .filter((t) => {
+        const d = new Date(t.date);
+        return t.type === 'income' && d.getFullYear() === now.getFullYear();
+      })
+      .reduce((acc, t) => acc + t.amount, 0);
+  },
+
+  getYearlyExpense: () => {
+    const { transactions } = get();
+    const now = new Date();
+    return transactions
+      .filter((t) => {
+        const d = new Date(t.date);
+        return t.type === 'expense' && d.getFullYear() === now.getFullYear();
+      })
+      .reduce((acc, t) => acc + t.amount, 0);
+  },
+
+  getCategoryData: () => {
+    const { transactions } = get();
+    const now = new Date();
+    // Use monthly data for category chart by default
+    const monthlyExpenses = transactions.filter(t => {
+      const d = new Date(t.date);
+      return t.type === 'expense' && 
+             d.getMonth() === now.getMonth() && 
+             d.getFullYear() === now.getFullYear();
+    });
+    const categories = [...new Set(monthlyExpenses.map(t => t.category))];
+    
+    return categories.map(cat => ({
+      name: cat,
+      value: monthlyExpenses.filter(t => t.category === cat).reduce((acc, t) => acc + t.amount, 0),
+      color: CATEGORY_COLORS[cat] || CATEGORY_COLORS['Diğer']
+    })).sort((a, b) => b.value - a.value);
+  }
     }),
     {
       name: 'fkm-finance-storage',
