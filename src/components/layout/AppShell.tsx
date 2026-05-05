@@ -1,21 +1,42 @@
-import { Outlet } from 'react-router-dom'
-import { Navbar } from '../Navbar'
-import { Sidebar } from '../Sidebar'
+import { useState } from 'react'
+import { Link, Outlet } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { Sidebar } from './Sidebar'
+import { Navbar } from './Navbar'
 
-interface AppShellProps {
-  children?: React.ReactNode
-}
+const AppShell = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
-export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="flex h-screen bg-zinc-50 dark:bg-zinc-900">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Navbar />
-        <main className="flex-1 overflow-y-auto p-4 md:p-6">
-          {children || <Outlet />}
+    <div className="flex h-screen bg-background">
+      {/* Sidebar */}
+      <motion.div
+        initial={{ width: isSidebarOpen ? 280 : 0 }}
+        animate={{ width: isSidebarOpen ? 280 : 0 }}
+        className={cn(
+          'fixed inset-y-0 left-0 z-50 flex flex-col border-r border-border bg-card/80 backdrop-blur-sm transition-all duration-300',
+          'glass-card'
+        )}
+      >
+        <Sidebar isOpen={isSidebarOpen} />
+      </motion.div>
+
+      {/* Main Content */}
+      <div className={cn(
+        'flex flex-1 flex-col transition-all duration-300',
+        isSidebarOpen ? 'ml-[280px]' : 'ml-0'
+      )}>
+        <Navbar onSidebarToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
+
+        {/* Page Content */}
+        <main className="flex-1 overflow-auto p-6">
+          <Outlet />
         </main>
       </div>
     </div>
   )
 }
+
+export default AppShell
