@@ -11,10 +11,34 @@ export interface Transaction {
   icon: string;
 }
 
+interface UserProfile {
+  name: string;
+  email: string;
+  avatar: string;
+  membership: 'Standard' | 'Premium' | 'Pro';
+}
+
+interface Account {
+  id: string;
+  name: string;
+  balance: number;
+  type: 'Cash' | 'Bank' | 'Credit Card';
+}
+
+interface Budget {
+  category: string;
+  limit: number;
+  spent: number;
+}
+
 interface FinanceState {
   transactions: Transaction[];
+  userProfile: UserProfile;
+  accounts: Account[];
+  budgets: Budget[];
   addTransaction: (transaction: Omit<Transaction, 'id' | 'date'>) => void;
   removeTransaction: (id: string) => void;
+  updateProfile: (profile: Partial<UserProfile>) => void;
   getTotalBalance: () => number;
   getMonthlyIncome: () => number;
   getMonthlyExpense: () => number;
@@ -40,6 +64,22 @@ export const useFinanceStore = create<FinanceState>()(
         { id: '2', name: 'Netflix', amount: 149, category: 'Eğlence', date: new Date().toISOString(), type: 'expense', icon: '🎬' },
         { id: '3', name: 'Maaş Ödemesi', amount: 45000, category: 'Maaş', date: new Date().toISOString(), type: 'income', icon: '💰' },
       ],
+      userProfile: {
+        name: 'Serdar A.',
+        email: 'serdar@example.com',
+        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Serdar',
+        membership: 'Premium',
+      },
+      accounts: [
+        { id: '1', name: 'Nakit', balance: 5200, type: 'Cash' },
+        { id: '2', name: 'Ziraat Bankası', balance: 42800, type: 'Bank' },
+        { id: '3', name: 'Kredi Kartı', balance: -12500, type: 'Credit Card' },
+      ],
+      budgets: [
+        { category: 'Gıda', limit: 5000, spent: 3200 },
+        { category: 'Eğlence', limit: 2000, spent: 800 },
+        { category: 'Ulaşım', limit: 1500, spent: 1200 },
+      ],
 
       addTransaction: (transaction) => set((state) => ({
         transactions: [
@@ -54,6 +94,10 @@ export const useFinanceStore = create<FinanceState>()(
 
       removeTransaction: (id) => set((state) => ({
         transactions: state.transactions.filter((t) => t.id !== id),
+      })),
+
+      updateProfile: (profile) => set((state) => ({
+        userProfile: { ...state.userProfile, ...profile },
       })),
 
       getTotalBalance: () => {

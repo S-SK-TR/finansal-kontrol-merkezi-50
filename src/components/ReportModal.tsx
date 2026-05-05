@@ -25,19 +25,19 @@ export function ReportModal({ isOpen, onClose }: Props) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-md z-[60]"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] z-[61] overflow-hidden"
+            className="relative w-full max-w-4xl max-h-[90vh] z-[61] overflow-hidden"
           >
             <div className="bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl flex flex-col h-full m-4 overflow-hidden">
               {/* Header */}
