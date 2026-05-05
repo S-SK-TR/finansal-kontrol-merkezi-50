@@ -157,7 +157,7 @@ export function AddTransactionModal({ isOpen, onClose }: Props) {
               </form>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

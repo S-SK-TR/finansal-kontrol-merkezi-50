@@ -155,7 +155,7 @@ export function ReportModal({ isOpen, onClose }: Props) {
               </div>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );
