@@ -53,10 +53,10 @@ const Accounts = () => {
             <div className="mt-6 flex gap-2">
               <button className="flex-1 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-xs font-medium transition-colors">
                 Detaylar
-              </div>
+              </button>
               <button className="flex-1 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-lg text-xs font-medium transition-colors">
                 Transfer
-              </div>
+              </button>
             </div>
           </motion.div>
         ))}
@@ -73,7 +73,7 @@ const Accounts = () => {
               </div>
               <div>
                 <p className="font-medium">Bankadan Nakite Transfer</p>
-                <p className="text-xs text-zinc-500">2 saat önce • Ziraat Bankası -> Nakit</p>
+                <p className="text-xs text-zinc-500">2 saat önce • Ziraat Bankası &rarr; Nakit</p>
               </div>
             </div>
             <p className="font-bold">₺500</p>
@@ -86,7 +86,7 @@ const Accounts = () => {
               </div>
               <div>
                 <p className="font-medium">Kredi Kartı Ödemesi</p>
-                <p className="text-xs text-zinc-500">Dün • Ziraat Bankası -> Kredi Kartı</p>
+                <p className="text-xs text-zinc-500">Dün • Ziraat Bankası &rarr; Kredi Kartı</p>
               </div>
             </div>
             <p className="font-bold">₺2,450</p>
